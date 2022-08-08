@@ -7,6 +7,10 @@ plugins {
 group = "me.obsilabor"
 version = "1.0.0+mc1.19.2"
 
+application {
+    mainClass.set("$group.pistonmetakt.classgen.ClassGeneratorKt")
+}
+
 repositories {
     mavenCentral()
 }

@@ -11,14 +11,14 @@ import kotlin.text.StringBuilder
 
 suspend fun main(args: Array<String>) {
     val fileName = "src/main/kotlin/me/obsilabor/pistonmetakt/MinecraftVersions.kt"
-    print("[ ] resolving versions")
+    print("[  ] resolving versions")
     val versions = PistonMetaClient.getLauncherMeta().versions
-    print("\r[✔] resolved versions")
+    print("\r[OK] resolved versions")
     val file = FileSpec.builder("me.obsilabor.pistonmetakt", "MinecraftVersions")
     val typeSpec = TypeSpec.classBuilder("MinecraftVersions")
         .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("\"unused\", \"PropertyName\"").build())
     println()
-    print("[ ] generating file")
+    print("[  ] generating file")
     for (version in versions) {
         typeSpec.addProperty(
             PropertySpec.builder(
@@ -35,9 +35,9 @@ suspend fun main(args: Array<String>) {
     file.addType(typeSpec.build())
     val builder = StringBuilder()
     file.build().writeTo(builder)
-    print("\r[✔] generated file")
+    print("\r[OK] generated file")
     println()
-    print("[ ] post processing the file")
+    print("[  ] post processing the file")
     var fileString = builder.toString()
     fileString = fileString
         .replace("`", "")
@@ -45,14 +45,15 @@ suspend fun main(args: Array<String>) {
     for (version in versions) {
         fileString = fileString.replace("${version.sha1}", "Version(${version.complianceLevel}, \"${version.id}\", \"${version.releaseTime}\", \"${version.sha1}\", \"${version.time}\", \"${version.type}\", \"${version.url}\")")
     }
-    print("\r[✔] post processing the file")
+    print("\r[OK] post processing the file")
     println()
-    print("[ ] writing to disk")
+    print("[  ] writing to disk")
     File(fileName).writeText(fileString)
-    print("\r[✔] writing to disk")
+    print("\r[OK] writing to disk")
     if (!args.contains("--no-commit")) {
-       ProcessBuilder("git", "add", fileName).redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
-           ProcessBuilder.Redirect.INHERIT).start()
+        println()
+        ProcessBuilder("git", "add", fileName).redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
+            ProcessBuilder.Redirect.INHERIT).start()
         ProcessBuilder("git", "commit", "-m", "\"Update MinecraftVersions via launchermeta API\"").redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
             ProcessBuilder.Redirect.INHERIT).start()
     }
