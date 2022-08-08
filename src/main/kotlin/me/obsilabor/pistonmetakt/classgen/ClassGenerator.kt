@@ -15,7 +15,7 @@ suspend fun main(args: Array<String>) {
     val versions = PistonMetaClient.getLauncherMeta().versions
     print("\r[OK] resolved versions")
     val file = FileSpec.builder("me.obsilabor.pistonmetakt", "MinecraftVersions")
-    val typeSpec = TypeSpec.classBuilder("MinecraftVersions")
+    val typeSpec = TypeSpec.objectBuilder("MinecraftVersions")
         .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("\"unused\", \"PropertyName\"").build())
     println()
     print("[  ] generating file")

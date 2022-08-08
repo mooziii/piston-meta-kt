@@ -4,7 +4,7 @@ import kotlin.Suppress
 import me.obsilabor.pistonmetakt.data.launchermeta.Version
 
 @Suppress("unused", "PropertyName")
-class MinecraftVersions {
+object MinecraftVersions {
   /**
    * This represents the minecraft version 1.19.2
    */
