@@ -53,5 +53,7 @@ suspend fun main(args: Array<String>) {
     if (!args.contains("--no-commit")) {
        ProcessBuilder("git", "add", fileName).redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
            ProcessBuilder.Redirect.INHERIT).start()
+        ProcessBuilder("git", "commit", "-m", "\"Update MinecraftVersions via launchermeta API\"").redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
+            ProcessBuilder.Redirect.INHERIT).start()
     }
 }
