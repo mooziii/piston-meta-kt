@@ -16,7 +16,7 @@ suspend fun main(args: Array<String>) {
     print("\r[OK] resolved versions")
     val file = FileSpec.builder("me.obsilabor.pistonmetakt", "MinecraftVersions")
     val typeSpec = TypeSpec.objectBuilder("MinecraftVersions")
-        .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("\"unused\", \"PropertyName\"").build())
+        .addAnnotation(AnnotationSpec.builder(Suppress::class).addMember("\"unused\"").build())
     println()
     print("[  ] generating file")
     for (version in versions) {
@@ -43,7 +43,7 @@ suspend fun main(args: Array<String>) {
         .replace("`", "")
         .replace("public ", "")
     for (version in versions) {
-        fileString = fileString.replace("${version.sha1}", "Version(${version.complianceLevel}, \"${version.id}\", \"${version.releaseTime}\", \"${version.sha1}\", \"${version.time}\", \"${version.type}\", \"${version.url}\")")
+        fileString = fileString.replace(version.sha1, "Version(${version.complianceLevel}, \"${version.id}\", \"${version.releaseTime}\", \"${version.sha1}\", \"${version.time}\", \"${version.type}\", \"${version.url}\")")
     }
     print("\r[OK] post processing the file")
     println()
