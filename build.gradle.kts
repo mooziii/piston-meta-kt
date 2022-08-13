@@ -2,6 +2,9 @@ plugins {
     kotlin("jvm") version "1.7.10"
     kotlin("plugin.serialization") version "1.7.10"
     id("application")
+    id("java-library")
+    id("maven-publish")
+    id("signing")
 }
 
 group = "me.obsilabor"
@@ -23,3 +26,67 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.0")
 }
 
+signing {
+    sign(publishing.publications)
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+val jarThing by tasks.registering(Jar::class) {
+    archiveClassifier.set("jar")
+}
+
+publishing {
+    kotlin.runCatching {
+        repositories {
+            maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                name = "ossrh"
+                credentials(PasswordCredentials::class) {
+                    username = (property("ossrhUsername") ?: return@credentials) as String
+                    password = (property("ossrhPassword") ?: return@credentials) as String
+                }
+            }
+        }
+    }.onFailure {
+        println("Unable to add publishing repositories: ${it.message}")
+    }
+
+    publications {
+        create<MavenPublication>(project.name) {
+            from(components["java"])
+            artifact(jarThing.get())
+
+            this.groupId = project.group.toString()
+            this.artifactId = project.name.toLowerCase()
+            this.version = project.version.toString()
+
+            pom {
+                name.set(project.name)
+                description.set("Kotlin library to interact with mojangs launchermeta and \"piston-data\" api")
+
+                developers {
+                    developer {
+                        name.set("mooziii")
+                    }
+                }
+
+                licenses {
+                    license {
+                        name.set("GPL-3.0 License")
+                        url.set("https://github.com/mooziii/piston-meta-kt/blob/master/LICENSE")
+                    }
+                }
+
+                url.set("https://github.com/mooziii/piston-meta-kt")
+
+                scm {
+                    connection.set("scm:git:git://github.com/mooziii/piston-meta-kt.git")
+                    url.set("https://github.com/mooziii/piston-meta-kt/tree/main")
+                }
+            }
+        }
+    }
+}
