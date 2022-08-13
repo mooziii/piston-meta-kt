@@ -9,7 +9,7 @@ import me.obsilabor.pistonmetakt.annotations.UnsafePistonMetaApi
 
 @Serializable
 data class PistonData(
-    val arguments: JsonObject, // really scuffed and I don't know what a correct json scheme would look like
+    val arguments: JsonObject? = null, // really scuffed and I don't know what a correct json scheme would look like
     val assetIndex: AssetIndex,
     val assets: String,
     val complianceLevel: Int,
@@ -27,6 +27,6 @@ data class PistonData(
     @UnsafePistonMetaApi
     @NotWorkingPistonMetaApi
     fun getUnsafeArguments(): LaunchArguments {
-        return Json.decodeFromJsonElement(arguments)
+        return Json.decodeFromJsonElement(arguments ?: throw RuntimeException("No arguments present"))
     }
 }

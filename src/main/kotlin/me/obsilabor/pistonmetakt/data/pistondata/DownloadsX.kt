@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DownloadsX(
-    val artifact: Artifact
+    val artifact: Artifact? = null
 )
