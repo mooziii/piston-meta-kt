@@ -5,7 +5,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Downloads(
     val client: Client,
-    val client_mappings: ClientMappings,
+    /**
+     * Only present on 1.14 and above
+     */
+    val client_mappings: ClientMappings? = null,
     val server: Server,
-    val server_mappings: ServerMappings
+    /**
+     * Only present on 1.14 and above
+     */
+    val server_mappings: ServerMappings? = null
 )
