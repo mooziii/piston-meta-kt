@@ -22,7 +22,7 @@ suspend fun main(args: Array<String>) {
     for (version in versions) {
         typeSpec.addProperty(
             PropertySpec.builder(
-                "V_" +
+                version.type.uppercase() + "_" +
                 version.id.uppercase()
                     .replace(".", "_")
                     .replace("-", "_")
