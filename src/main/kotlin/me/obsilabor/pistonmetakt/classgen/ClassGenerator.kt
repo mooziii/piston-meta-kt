@@ -52,9 +52,10 @@ suspend fun main(args: Array<String>) {
     print("\r[OK] writing to disk")
     if (!args.contains("--no-commit")) {
         println()
-        ProcessBuilder("git", "add", fileName).redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
-            ProcessBuilder.Redirect.INHERIT).start()
-        ProcessBuilder("git", "commit", "-m", "\"Update MinecraftVersions via launchermeta API\"").redirectErrorStream(true).redirectInput(ProcessBuilder.Redirect.INHERIT).redirectOutput(
-            ProcessBuilder.Redirect.INHERIT).start()
+        ProcessBuilder("git", "add", fileName).redirectErrorStream(true).redirectOutput(ProcessBuilder.Redirect.INHERIT).start()
+        ProcessBuilder("git", "commit", "-m", "\"Update MinecraftVersions via launchermeta API\"").redirectErrorStream(true).redirectOutput(ProcessBuilder.Redirect.INHERIT).start()
+        if (args.contains("-p") || args.contains("--push")) {
+            ProcessBuilder("git", "push").redirectErrorStream(true).redirectOutput(ProcessBuilder.Redirect.INHERIT).start()
+        }
     }
 }
