@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "me.obsilabor"
-version = "1.0.2"
+version = "1.0.3"
 
 application {
     mainClass.set("$group.pistonmetakt.classgen.ClassGeneratorKt")
@@ -20,10 +20,10 @@ repositories {
 
 dependencies {
     implementation("com.squareup:kotlinpoet:1.12.0")
-    implementation("io.ktor:ktor-client-core:2.1.0")
-    implementation("io.ktor:ktor-client-cio:2.1.0")
-    implementation("io.ktor:ktor-client-content-negotiation:2.1.0")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.0")
+    implementation("io.ktor:ktor-client-core:2.1.2")
+    implementation("io.ktor:ktor-client-cio:2.1.2")
+    implementation("io.ktor:ktor-client-content-negotiation:2.1.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.2")
 }
 
 signing {
