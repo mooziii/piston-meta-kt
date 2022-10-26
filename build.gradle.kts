@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "me.obsilabor"
-version = "1.0.3"
+version = "1.0.4"
 
 application {
     mainClass.set("$group.pistonmetakt.classgen.ClassGeneratorKt")

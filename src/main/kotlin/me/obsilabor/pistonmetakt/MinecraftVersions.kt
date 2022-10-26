@@ -6,9 +6,14 @@ import me.obsilabor.pistonmetakt.data.launchermeta.Version
 @Suppress("unused")
 object MinecraftVersions {
   /**
+   * This represents the minecraft version 22w43a
+   */
+  val SNAPSHOT_22W43A: Version = Version(1, "22w43a", "2022-10-26T11:55:59+00:00", "3df2e71658adfd995d97bf0d643790f2ed1c5fb9", "2022-10-26T12:01:21+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/3df2e71658adfd995d97bf0d643790f2ed1c5fb9/22w43a.json")
+
+  /**
    * This represents the minecraft version 22w42a
    */
-  val SNAPSHOT_22W42A: Version = Version(1, "22w42a", "2022-10-19T09:34:22+00:00", "3978b2457a24b75611d173dda9df6a71439bf990", "2022-10-19T12:14:41+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/3978b2457a24b75611d173dda9df6a71439bf990/22w42a.json")
+  val SNAPSHOT_22W42A: Version = Version(1, "22w42a", "2022-10-19T09:34:22+00:00", "440b76ef75eab8a7f453c4160c84c1bc310acb1d", "2022-10-26T11:45:12+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/440b76ef75eab8a7f453c4160c84c1bc310acb1d/22w42a.json")
 
   /**
    * This represents the minecraft version 1.19.2
@@ -2891,14 +2896,14 @@ object MinecraftVersions {
   val RELEASE_1_4_7: Version = Version(0, "1.4.7", "2012-12-27T22:00:00+00:00", "7aa8e9aeacf4e1076bfd81c096f78de9b883ebe6", "2022-03-10T09:51:38+00:00", "release", "https://launchermeta.mojang.com/v1/packages/7aa8e9aeacf4e1076bfd81c096f78de9b883ebe6/1.4.7.json")
 
   /**
-   * This represents the minecraft version 1.4.6
-   */
-  val RELEASE_1_4_6: Version = Version(0, "1.4.6", "2012-12-19T22:00:00+00:00", "09832797138da79745ade734da775f44c254066b", "2022-03-10T09:51:38+00:00", "release", "https://launchermeta.mojang.com/v1/packages/09832797138da79745ade734da775f44c254066b/1.4.6.json")
-
-  /**
    * This represents the minecraft version 1.4.5
    */
   val RELEASE_1_4_5: Version = Version(0, "1.4.5", "2012-12-19T22:00:00+00:00", "d64a902a48a6a618f9a0a82c183be454e7a1f23b", "2022-03-10T09:51:38+00:00", "release", "https://launchermeta.mojang.com/v1/packages/d64a902a48a6a618f9a0a82c183be454e7a1f23b/1.4.5.json")
+
+  /**
+   * This represents the minecraft version 1.4.6
+   */
+  val RELEASE_1_4_6: Version = Version(0, "1.4.6", "2012-12-19T22:00:00+00:00", "09832797138da79745ade734da775f44c254066b", "2022-03-10T09:51:38+00:00", "release", "https://launchermeta.mojang.com/v1/packages/09832797138da79745ade734da775f44c254066b/1.4.6.json")
 
   /**
    * This represents the minecraft version 1.4.4
