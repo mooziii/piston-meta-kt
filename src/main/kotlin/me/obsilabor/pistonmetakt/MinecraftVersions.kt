@@ -6,14 +6,19 @@ import me.obsilabor.pistonmetakt.data.launchermeta.Version
 @Suppress("unused")
 object MinecraftVersions {
   /**
+   * This represents the minecraft version 22w44a
+   */
+  val SNAPSHOT_22W44A: Version = Version(1, "22w44a", "2022-11-02T13:15:43+00:00", "0e7f278d574c5145bb18eb75613100234d818198", "2022-11-02T13:20:33+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/0e7f278d574c5145bb18eb75613100234d818198/22w44a.json")
+
+  /**
    * This represents the minecraft version 22w43a
    */
-  val SNAPSHOT_22W43A: Version = Version(1, "22w43a", "2022-10-26T11:55:59+00:00", "3df2e71658adfd995d97bf0d643790f2ed1c5fb9", "2022-10-26T12:01:21+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/3df2e71658adfd995d97bf0d643790f2ed1c5fb9/22w43a.json")
+  val SNAPSHOT_22W43A: Version = Version(1, "22w43a", "2022-10-26T11:55:59+00:00", "f8fff897612915a8a801e3a13be9998d62465d4b", "2022-11-02T13:09:46+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/f8fff897612915a8a801e3a13be9998d62465d4b/22w43a.json")
 
   /**
    * This represents the minecraft version 22w42a
    */
-  val SNAPSHOT_22W42A: Version = Version(1, "22w42a", "2022-10-19T09:34:22+00:00", "440b76ef75eab8a7f453c4160c84c1bc310acb1d", "2022-10-26T11:45:12+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/440b76ef75eab8a7f453c4160c84c1bc310acb1d/22w42a.json")
+  val SNAPSHOT_22W42A: Version = Version(1, "22w42a", "2022-10-19T09:34:22+00:00", "d1fd0a21511b1a940852addd68b707b62c62d911", "2022-11-02T13:09:46+00:00", "snapshot", "https://piston-meta.mojang.com/v1/packages/d1fd0a21511b1a940852addd68b707b62c62d911/22w42a.json")
 
   /**
    * This represents the minecraft version 1.19.2
