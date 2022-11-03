@@ -7,13 +7,13 @@ Kotlin library to interact with mojangs [launchermeta](https://launchermeta.moja
 **Gradle (Kotlin)**
 
 ```kotlin
-implementation("me.obsilabor:piston-meta-kt:1.0.1")
+implementation("me.obsilabor:piston-meta-kt:1.0.4")
 ```
 
 **Gradle (Groovy)**
 
 ```groovy
-implementation 'me.obsilabor:piston-meta-kt:1.0.1'
+implementation 'me.obsilabor:piston-meta-kt:1.0.4'
 ```
 
 **Maven**
