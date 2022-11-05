@@ -43,6 +43,7 @@ suspend fun main() {
 val msauth = MicrosoftAuth("URL_PREFIX", "AZURE_CLIENT_ID", "AZURE_CLIENT_SECRET", ssl = true) {
     println(it.id) // specific auth id
     println(it.token.user) // xbox user id
+    println(it.token.value) // minecraft access token
     println(it.minecraftUUID) // minecraft uuid
     println(it.minecraftName) // minecraft name 
 }
