@@ -56,6 +56,16 @@ publishing {
                     password = (property("ossrhPassword") ?: return@credentials) as String
                 }
             }
+            maven("https://repo.obsilabor.me/snapshots") {
+                name = "obsilaborRepoSnapshots"
+                credentials(PasswordCredentials::class) {
+                    username = (property("obsilaborRepoUsername") ?: return@credentials) as String
+                    password = (property("obsilaborRepoPassword") ?: return@credentials) as String
+                }
+                authentication {
+                    create<BasicAuthentication>("basic")
+                }
+            }
         }
     }.onFailure {
         println("Unable to add publishing repositories: ${it.message}")
