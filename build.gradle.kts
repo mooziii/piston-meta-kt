@@ -20,10 +20,17 @@ repositories {
 
 dependencies {
     implementation("com.squareup:kotlinpoet:1.12.0")
-    implementation("io.ktor:ktor-client-core:2.1.2")
-    implementation("io.ktor:ktor-client-cio:2.1.2")
-    implementation("io.ktor:ktor-client-content-negotiation:2.1.2")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.2")
+
+    implementation("io.ktor:ktor-client-core:2.1.3")
+    implementation("io.ktor:ktor-client-cio:2.1.3")
+    implementation("io.ktor:ktor-client-content-negotiation:2.1.3")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+
+    implementation("org.slf4j:slf4j-simple:2.0.3")
+    implementation("io.ktor:ktor-server-core:2.1.3")
+    implementation("io.ktor:ktor-server-netty:2.1.3")
+
+    implementation("me.nullicorn:ms-to-mca:0.0.1")
 }
 
 signing {
